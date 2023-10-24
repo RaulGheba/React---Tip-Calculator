@@ -70,7 +70,7 @@ function BillInput({ finalBill, onBill }) {
   );
 }
 
-function ServiceInput({ finalBill, selfReview, onSelfReview }) {
+function ServiceInput({ onSelfReview }) {
   // My input
 
   const reviewsSelf = options.map((val) => (
@@ -82,13 +82,16 @@ function ServiceInput({ finalBill, selfReview, onSelfReview }) {
   return (
     <div className="Input">
       <h3>How did you like the service?</h3>
-      <select value={selfReview} onChange={(e) => onSelfReview(e.target.value)}>
+      <select
+        value={reviewsSelf}
+        onChange={(e) => onSelfReview(e.target.value)}
+      >
         {reviewsSelf}
       </select>
     </div>
   );
 }
-function FriendInput({ finalBill, friendReview, onFriendReview }) {
+function FriendInput({ friendReview, onFriendReview }) {
   // Friend input
   const reviewsFriend = options.map((val) => (
     <option key={val.label} value={Number(val.label)}>
